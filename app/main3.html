@@ -1,0 +1,74 @@
+<html>
+<head>
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-messages/angular-messages.js"></script>
+	<script type="text/javascript" src="error-messages2.js"></script>
+	<script type="text/javascript">
+		angular.module('myApp', ['ngMessages']);
+		/*
+		app.directive('recordAvailabilityValidator',
+			  ['$http', function($http) {
+
+			  return {
+				require : 'ngModel',
+				link : function(scope, element, attrs, ngModel) {
+				  var apiUrl = attrs.recordAvailabilityValidator;
+
+				  function setAsLoading(bool) {
+					ngModel.$setValidity('recordLoading', !bool); 
+				  }
+
+				  function setAsAvailable(bool) {
+					ngModel.$setValidity('recordAvailable', bool); 
+				  }
+
+				  ngModel.$parsers.push(function(value) {
+					if(!value || value.length == 0) return;
+
+					setAsLoading(true);
+					setAsAvailable(false);
+
+					$http.get(apiUrl, { v : value })
+					  .success(function() {
+						setAsLoading(false);
+						setAsAvailable(true);
+					  })
+					  .error(function() {
+						setAsLoading(false);
+						setAsAvailable(false);
+					  });
+
+					return value;
+				  })
+				}
+			  }
+			}]);
+		*/
+		
+	</script>
+</head>
+<body ng-app="myApp">
+
+
+	<h1> This is Ng message Example </h1>
+	<form name="userForm">
+	  <div class="field">
+		<label for="emailAddress">Enter your email address:</label>
+		<input type="email"
+			   name="emailAddress"
+			   ng-model="data.email"
+			   ng-minlength="5"
+			   ng-maxlength="30"
+			   required />
+		<div ng-messages="userForm.emailAddress.$error" >
+			<div id="error-messages2.js">
+				
+			</div>
+		</div>
+	  </div>
+
+	  <input type="submit" />
+	</form>
+
+</body>
+</html>
