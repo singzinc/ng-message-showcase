@@ -1,0 +1,19 @@
+<h1>This is case 2</h1>
+<form name="userForm">
+    <div class="field">
+        <label for="emailAddress">Enter your email address:</label>
+        <input type="email"
+               name="emailAddress"
+               ng-model="data.email"
+               ng-minlength="5"
+               ng-maxlength="30"
+               required />
+        <div ng-messages="userForm.emailAddress.$error" >
+            <div ng-messages-include="error-messages.html">
+                <div ng-message="required">You did not enter an email address</div>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" />
+</form>
